@@ -1,0 +1,301 @@
+*****************************************
+
+Step 1: Generating: (see GraphA.txt)
+
+*****************************************
+
+8
+  0  32  65  72   4  17  66   9
+ 98   0   5   0  77  35  97  47
+ 93  87   0  35  52  39  89  87
+ 95  15  84   0  74  36  16  82
+ 63  58  18  79   0  54  31  84
+ 38  19  93  74  82   0  18  86
+ 13  96   5   5  98  25   0  26
+ 12  48   8  26  68  14  25   0
+38 95 70 4 62 24 76 40
+
+*****************************************
+
+Step 2: Input GRAPH from FILE (graphB.txt):
+
+*****************************************
+
+N=8
+
+E[0][0]=0
+
+E[0][1]=20
+
+E[0][2]=0
+
+E[0][3]=80
+
+E[0][4]=0
+
+E[0][5]=0
+
+E[0][6]=90
+
+E[0][7]=0
+
+E[1][0]=0
+
+E[1][1]=0
+
+E[1][2]=0
+
+E[1][3]=0
+
+E[1][4]=0
+
+E[1][5]=10
+
+E[1][6]=0
+
+E[1][7]=0
+
+E[2][0]=0
+
+E[2][1]=0
+
+E[2][2]=0
+
+E[2][3]=10
+
+E[2][4]=0
+
+E[2][5]=50
+
+E[2][6]=0
+
+E[2][7]=20
+
+E[3][0]=0
+
+E[3][1]=0
+
+E[3][2]=10
+
+E[3][3]=0
+
+E[3][4]=0
+
+E[3][5]=0
+
+E[3][6]=20
+
+E[3][7]=0
+
+E[4][0]=0
+
+E[4][1]=50
+
+E[4][2]=0
+
+E[4][3]=0
+
+E[4][4]=0
+
+E[4][5]=0
+
+E[4][6]=30
+
+E[4][7]=0
+
+E[5][0]=0
+
+E[5][1]=0
+
+E[5][2]=10
+
+E[5][3]=40
+
+E[5][4]=0
+
+E[5][5]=0
+
+E[5][6]=0
+
+E[5][7]=0
+
+E[6][0]=20
+
+E[6][1]=0
+
+E[6][2]=0
+
+E[6][3]=0
+
+E[6][4]=0
+
+E[6][5]=0
+
+E[6][6]=0
+
+E[6][7]=0
+
+E[7][0]=0
+
+E[7][1]=0
+
+E[7][2]=0
+
+E[7][3]=0
+
+E[7][4]=0
+
+E[7][5]=0
+
+E[7][6]=0
+
+E[7][7]=0
+
+A[0]=0
+A[1]=1
+A[2]=2
+A[3]=3
+A[4]=4
+A[5]=5
+A[6]=6
+A[7]=7
+*****************************************
+
+Step 3: Search Using DFS:
+
+*****************************************
+
+Enter the Value of a node X(integer) to SEARCH:
+
+Visiting at A[0]=0
+
+Visiting at A[1]=1
+
+Found at A[5]=5
+
+*****************************************
+
+Step 4: Search Using BFS:
+
+*****************************************
+
+Enter the Value of a node Y(integer) to SEARCH:
+
+Visiting at A[0]=0
+
+Visiting at A[1]=1
+
+Visiting at A[3]=3
+
+Found at A[6]=6
+
+*****************************************
+
+Step 5: Find Shortest Path from X to Y (REAL-TIME)using Dijskra:
+
+*****************************************
+
+Shortest Path from A[5] to each other node(using index as node ID):
+0, 6, 3, 2, 5
+1, 0, 6, 3, 2, 5
+2, 5
+3, 2, 5
+4
+5
+6, 3, 2, 5
+7, 2, 5
+
+Shortest Path from A[6] to each other node(using index as node ID):
+0, 6
+1, 0, 6
+2, 5, 1, 0, 6
+3, 2, 5, 1, 0, 6
+4
+5, 1, 0, 6
+6
+7, 2, 5, 1, 0, 6
+*****************************************
+
+Step 6: Find ALL Shortest Path for Graph B: write results to file (graphB-allSP.txt)
+
+*****************************************
+
+WRITING shortest paths to file graphB-allSP.txt ... BUT :
+
+No path from A[0] to A[0]
+
+No path from A[0] to A[4]
+
+No path from A[1] to A[1]
+
+No path from A[1] to A[4]
+
+No path from A[2] to A[2]
+
+No path from A[2] to A[4]
+
+No path from A[3] to A[3]
+
+No path from A[3] to A[4]
+
+No path from A[4] to A[4]
+
+No path from A[5] to A[4]
+
+No path from A[5] to A[5]
+
+No path from A[6] to A[4]
+
+No path from A[6] to A[6]
+
+No path from A[7] to A[0]
+
+No path from A[7] to A[1]
+
+No path from A[7] to A[2]
+
+No path from A[7] to A[3]
+
+No path from A[7] to A[4]
+
+No path from A[7] to A[5]
+
+No path from A[7] to A[6]
+
+No path from A[7] to A[7]
+
+*****************************************
+
+Step 7: Find Shortest Path from P to Q (OFF-LINE) using recorded results in graphB-allSP.txt
+
+*****************************************
+
+
+Enter the Value of a node P(integer):
+
+Enter the Value of a node Q(integer):
+
+Visiting at A[0]=0
+
+Visiting at A[1]=1
+
+Visiting at A[3]=3
+
+Visiting at A[6]=6
+
+Visiting at A[2]=2
+
+Found at A[5]=5
+
+Visiting at A[0]=0
+
+Visiting at A[1]=1
+
+Visiting at A[3]=3
+
+Found at A[6]=6
+
+
+P is at A[5] and Q is at A[6]
+
+Shortest path from 5 to 6 is 5 2 3 6 

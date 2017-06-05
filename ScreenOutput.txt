@@ -1,0 +1,199 @@
+
+//================ COMMENTS ONLY (no need to print this on your screen output) ==========
+//
+// Step 2 reads data from GraphB.txt which is the same graph in this youtube example:
+// https://www.youtube.com/watch?v=8Ls1RqHCOPw&feature=related
+//
+// A is A[0] with value 0
+// B is A[1] with value 1
+// C is A[2] with value 2
+// D is A[3] with value 3
+// E is A[4] with value 4
+// F is A[5] with value 5
+// G is A[6] with value 6
+// H is A[7] with value 7
+//
+//================================== END of COMMENTS ===================================
+
+
+*****************************************
+Step 1: Generating: (see GraphA.txt)
+*****************************************
+0 96 98 12 22 17 32 11 
+83 0 29 90 71 77 44 84 
+1 61 0 14 67 78 24 14 
+30 52 20 0 77 19 60 20 
+39 94 40 17 0 7 12 36 
+88 15 19 96 92 0 14 99 
+71 49 38 9 41 99 0 68 
+33 90 70 18 54 20 76 0 
+44 67 30 46 16 13 31 83 
+
+*******************************************
+Step 2: Input GRAPH from FILE (GraphB.txt)
+*******************************************
+
+ N=8 
+
+ E[0][0]=0
+ E[0][1]=20
+ E[0][2]=0
+ E[0][3]=80
+ E[0][4]=0
+ E[0][5]=0
+ E[0][6]=90
+ E[0][7]=0
+ E[1][0]=0
+ E[1][1]=0
+ E[1][2]=0
+ E[1][3]=0
+ E[1][4]=0
+ E[1][5]=10
+ E[1][6]=0
+ E[1][7]=0
+ E[2][0]=0
+ E[2][1]=0
+ E[2][2]=0
+ E[2][3]=10
+ E[2][4]=0
+ E[2][5]=50
+ E[2][6]=0
+ E[2][7]=20
+ E[3][0]=0
+ E[3][1]=0
+ E[3][2]=10
+ E[3][3]=0
+ E[3][4]=0
+ E[3][5]=0
+ E[3][6]=20
+ E[3][7]=0
+ E[4][0]=0
+ E[4][1]=50
+ E[4][2]=0
+ E[4][3]=0
+ E[4][4]=0
+ E[4][5]=0
+ E[4][6]=30
+ E[4][7]=0
+ E[5][0]=0
+ E[5][1]=0
+ E[5][2]=10
+ E[5][3]=40
+ E[5][4]=0
+ E[5][5]=0
+ E[5][6]=0
+ E[5][7]=0
+ E[6][0]=20
+ E[6][1]=0
+ E[6][2]=0
+ E[6][3]=0
+ E[6][4]=0
+ E[6][5]=0
+ E[6][6]=0
+ E[6][7]=0
+ E[7][0]=0
+ E[7][1]=0
+ E[7][2]=0
+ E[7][3]=0
+ E[7][4]=0
+ E[7][5]=0
+ E[7][6]=0
+ E[7][7]=0
+
+  A[0]=0
+  A[1]=1
+  A[2]=2
+  A[3]=3
+  A[4]=4
+  A[5]=5
+  A[6]=6
+  A[7]=7
+
+***********************************
+Step 3: Search Using DFS: 
+***********************************
+
+Enter the Value of a node X(integer) to SEARCH:
+5
+Visiting at A[0]=0
+Visiting at A[1]=1
+Visiting at A[5]=5
+Found 5 at A[5]
+
+SEARCH RESULT: Found at A[5]=5
+***********************************
+Step 4: Search Using BFS: 
+***********************************
+
+Enter the Value of a node Y(integer) to SEARCH:
+6
+Visiting at A[0]=0
+Visiting at A[1]=1
+Visiting at A[3]=3
+Visiting at A[6]=6
+Found 6 at A[6]
+
+SEARCH RESULT: Found at A[6]=6
+******************************************************************
+Step 5: Find Shortest Path from X to Y (REAL-TIME)using Dijsktra: 
+******************************************************************
+ Shortest Path from A[5] to each of other nodes(using index as node ID):
+ 0,6,3,2,5 (A,G,D,C,F)
+ 1,0,6,3,2,5 (B,A,G,D,C,F)
+ 2,5 (C,F)
+ 3,2,5 (D,C,F)
+ 4 No Path !
+ 5
+ 6,3,2,5 (G,D,C,F)
+ 7,2,5 (H,C,F)
+ -------------------------------------------
+ Shortest Path(5->6)=5,2,3,6,  (F,C,D,G)
+ -------------------------------------------
+
+ Shortest Path from A[6] to each of other nodes(using index as node ID):
+ 0,6 (A,G)
+ 1,0,6 (B,A,G)
+ 2,5,1,0,6 (C,F,B,A,G)
+ 3,2,5,1,0,6 (D,C,F,B,A,G)
+ 4 No Path !
+ 5,1,0,6 (F,B,A,G)
+ 6
+ 7,2,5,1,0,6 (H,C,F,B,A,G)
+ -------------------------------------------
+ Shortest Path(6->5)=6,0,1,5,  (G,A,B,F)
+ -------------------------------------------
+
+***********************************************************************************
+Step 6: Find ALL Shortest Path for Graph B: write results to file (graphB-allSP.txt)
+*************************************************************************************
+
+ WRITING shortest paths to file graphB-allSP.txt ... BUT :
+ No Path from A[0] to A[0]
+ No Path from A[0] to A[4]
+ No Path from A[1] to A[1]
+ No Path from A[1] to A[4]
+ No Path from A[2] to A[2]
+ No Path from A[2] to A[4]
+ No Path from A[3] to A[3]
+ No Path from A[3] to A[4]
+ No Path from A[4] to A[4]
+ No Path from A[5] to A[4]
+ No Path from A[5] to A[5]
+ No Path from A[6] to A[4]
+ No Path from A[6] to A[6]
+ No Path from A[7] to A[0]
+ No Path from A[7] to A[4]
+ No Path from A[7] to A[7]
+
+********************************************************************************************
+Step 7: Find Shortest Path from P to Q (OFF-LINE) using recorded results in graphB-allSP.txt
+********************************************************************************************
+
+Enter the Value of a node P(integer):
+5
+
+Enter the Value of a node Q(integer):
+6
+
+ P is at A[5] and Q is at A[6]
+ Shortest Path from 5=A[5] to 6=A[6] is 5 2 3 6 
